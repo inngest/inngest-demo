@@ -26,19 +26,29 @@ export default function BackgroundJobsPage() {
             <div className="flex gap-2">
               <a
                 href="https://www.inngest.com/docs/guides/background-jobs"
-                className="rounded-lg bg-gray-700 px-3 py-1 text-sm font-medium text-gray-100 no-underline hover:bg-gray-500 hover:text-white">
+                className="rounded-lg bg-slate-700 px-3 py-1 text-sm font-medium text-slate-100 no-underline hover:bg-slate-500 hover:text-white">
                 Docs
               </a>
               <a href="https://github.com/inngest/inngest-demo/blob/main/src/app/use-cases/background-jobs/csv-file/processCSVFile.ts"
-                 className="rounded-lg bg-gray-700 px-3 py-1 text-sm font-medium text-gray-100 no-underline hover:bg-gray-500 hover:text-white">
+                 className="rounded-lg bg-slate-700 px-3 py-1 text-sm font-medium text-slate-100 no-underline hover:bg-slate-500 hover:text-white">
                   Code
               </a>
             </div>
           </div>
           <div
-            className="lg:col-span-3 overflow-auto min-h-full rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
+            className="lg:col-span-3 overflow-auto min-h-full flex items-center rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
             {/* Illustration */}
-            <button onClick={triggerFileUpload}>Trigger File Upload</button>
+            <button
+              type="button"
+              className="relative block rounded-lg bg-zinc-900/80 p-4 text-center group hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              onClick={triggerFileUpload}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="mx-auto h-10 w-10 group-hover:text-slate-400 text-slate-600">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
+              </svg>
+              <span className="mt-2 block text-sm font-semibold text-slate-100">File Upload</span>
+            </button>
+
           </div>
         </div>
       </div>
