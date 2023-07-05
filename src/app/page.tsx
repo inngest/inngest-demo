@@ -2,9 +2,11 @@ import Link from 'next/link';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between max-w-7xl mx-auto px-6 py-20 gap-12">
-      <h2 className="text-2xl font-bold">Use Cases</h2>
-      <div className="grid gap-4 grid-cols-3 grid-rows-2 w-full">
+    <div className="justify-between max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4 space-y-24">
+      <div className="mx-auto max-w-2xl lg:text-center">
+        <h1 className="text-4xl font-bold">Use Cases</h1>
+      </div>
+      <div className="grid gap-4 grid-cols-3 w-full">
         <Link href="/use-cases/background-jobs" className="flex flex-col w-full h-[380px] p-6 overflow-hidden border hover:bg-gradient-to-b hover:from-[#050911] hover:from-70% hover:to-slate-950 hover:to-100% rounded-xl bg-[#050911] border-zinc-800 transition-colors duration-150 hover:border-slate-700">
           <div className="h-full">
             {/* Illustration */}
@@ -27,6 +29,6 @@ export default function Home() {
           <p className="text-sm text-zinc-500">Run functions on a schedule</p>
         </Link>
       </div>
-    </main>
+    </div>
   )
 }
