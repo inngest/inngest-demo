@@ -27,7 +27,7 @@ export default function WorkflowsPage() {
             <h2 className="text-2xl font-bold">
               Customer Onboarding
             </h2>
-            <p className="text-zinc-500">
+            <p className="text-indigo-200">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec
             </p>
             <div className="flex gap-2">

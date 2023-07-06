@@ -18,7 +18,7 @@ export default function BackgroundJobsPage() {
             <h2 className="text-2xl font-bold">
               CSV File Import
             </h2>
-            <p className="text-zinc-500">
+            <p className="text-indigo-200">
               This example demonstrate a CSV import functionality that allows the user to import a
               list of contacts. The CSV file is uploaded and then processed in the background by an
               Inngest function. By using an Inngest function, you don’t have to worry about
