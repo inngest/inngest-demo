@@ -16,12 +16,14 @@ export default function BackgroundJobsPage() {
         <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
             <h2 className="text-2xl font-bold">
-              CSV File Processing
+              CSV File Import
             </h2>
             <p className="text-zinc-500">
-              This example shows how to process a CSV file in the background. The file is uploaded
-              to the server and then processed in the background. The user is notified when the
-              processing is complete.
+              This example demonstrate a CSV import functionality that allows the user to import a
+              list of contacts. The CSV file is uploaded and then processed in the background by an
+              Inngest function. By using an Inngest function, you don’t have to worry about
+              timeouts or rate limits when saving the contacts. Inngest will automatically retry
+              failed requests for you.
             </p>
             <div className="flex gap-2">
               <a

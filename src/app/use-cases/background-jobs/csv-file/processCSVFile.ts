@@ -1,60 +1,50 @@
 import inngest from '@/app/api/inngest/client';
-import { parse } from 'csv-parse';
-import fs from 'fs';
-import { z } from "zod";
+import { parse } from 'csv-parse/sync';
+import fs from 'node:fs/promises';
 import path from 'path';
 
-const personSchema = z.object({
-    index: z.string(),
-    id: z.string(),
-    firstName: z.string(),
-    lastName: z.string(),
-    sex: z.string(),
-    email: z.string(),
-    phone: z.string(),
-    birthDate: z.coerce.date(),
-    jobTitle: z.string(),
-});
-
-type Person = z.infer<typeof personSchema>;
-
+type Contact = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  birthDate: string;
+  jobTitle: string;
+}
 
 const processCSVFile = inngest.createFunction(
   { name: "Process CSV file" },
   { event: "app/csv.file.uploaded" },
-  async ({ event }) => {
-    const fileURL = event.data.url;
-    const csvFilePath = path.join(process.cwd(), fileURL);
+  async ({ event, step }) => {
+    const fileContent = await step.run("Read file content", async () => {
+      const fileURL = event.data.url;
+      const csvFilePath = path.join(process.cwd(), fileURL);
+      const buffer = await fs.readFile(csvFilePath);
+      return buffer.toString();
+    });
 
-    const parser = fs.createReadStream(csvFilePath).pipe(parse({
-        columns: Object.keys(personSchema.shape),
-    }));
+    const records = await step.run("Parse CSV", async () => {
+      return parse(fileContent, { columns: true, bom: true }) as Contact[];
+    });
 
-    let adultCount = 0;
-    for await (const record of parser) {
-        const result = personSchema.safeParse(record);
-        if (!result.success) continue;
+    const batches = await step.run("Split records into batches", async () => {
+      return records.reduce<Contact[][]>((batches, record, index) => {
+        const batchIndex = Math.floor(index / 100);
+        batches[batchIndex] = batches[batchIndex] || [];
+        batches[batchIndex].push(record);
+        return batches;
+      }, []);
+    });
 
-        const person = result.data;
-        if (isAdult(person)) adultCount++;
-    }
+    const importSteps = batches.map((batch) =>
+      step.run("Import contact batch", () => {
+        // API call to import contacts
+        return { success: true, message: `${batch.length} contacts imported.` };
+      }),
+    );
 
-    return { adultCount };
-  }
+    return await Promise.all(importSteps);
+  },
 );
-
-function isAdult(person: Person) {
-    const age = getAge(person);
-    return age >= 18;
-}
-function getAge(person: Person) {
-    const today = new Date();
-    const age = today.getFullYear() - person.birthDate.getFullYear();
-    const month = today.getMonth() - person.birthDate.getMonth();
-    if (month < 0 || (month === 0 && today.getDate() < person.birthDate.getDate())) {
-        return age - 1;
-    }
-    return age;
-}
 
 export default processCSVFile;

@@ -16,7 +16,7 @@ export async function PUT(request: NextRequest) {
 
 async function fakeUpload(file: NextRequest['body']) {
   return {
-    url: '/public/1000-people.csv',
+    url: '/public/500-contacts.csv',
     uploadedAt: new Date(),
     contentType: 'text/csv',
   }
