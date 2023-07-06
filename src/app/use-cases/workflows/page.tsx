@@ -9,6 +9,7 @@ export default function WorkflowsPage() {
     await inngest.send({
       name: 'app/user.signed.up',
       data: {
+        userId: '123',
         firstName: 'John',
         lastName: 'Doe',
         email: 'doej@example.com',
