@@ -30,8 +30,7 @@ const processCSVFile = inngest.createFunction(
     const batches = await step.run("Split records into batches", async () => {
       return records.reduce<Contact[][]>((batches, record, index) => {
         const batchIndex = Math.floor(index / 100);
-        batches[batchIndex] = batches[batchIndex] || [];
-        batches[batchIndex].push(record);
+        batches[batchIndex] = [...(batches[batchIndex] || []), record];
         return batches;
       }, []);
     });

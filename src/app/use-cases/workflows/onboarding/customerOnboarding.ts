@@ -1,0 +1,31 @@
+import inngest from '@/app/api/inngest/client';
+
+const customerOnboarding = inngest.createFunction(
+  { name: "Customer Onboarding" },
+  { event: "app/user.signed.up" },
+  async ({ event, step }) => {
+    await step.run("Send welcome email", async () => {
+      // Send welcome email
+    })
+
+    await step.sleep("2d");
+
+    await step.run("Send “New in Stock” email", async () => {
+      // Send “New in Stock” email
+    });
+
+    const emailOpenedEvent = await step.waitForEvent("app/email.opened", {
+      timeout: "3d",
+      if: "event.data.userId == async.data.userId &&" +
+          "async.event.data.template.name == 'New in Stock'"
+    });
+
+    if (!emailOpenedEvent) {
+      await step.run("Send “10% Discount” email", async () => {
+        // Send “10% Discount” email
+      })
+    }
+  },
+);
+
+export default customerOnboarding;
