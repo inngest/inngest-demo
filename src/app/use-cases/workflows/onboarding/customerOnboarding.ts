@@ -1,6 +1,6 @@
 import inngest from '@/app/api/inngest/client';
 
-const customerOnboarding = inngest.createFunction(
+export default inngest.createFunction(
   { name: "Customer Onboarding" },
   { event: "app/user.signed.up" },
   async ({ event, step }) => {
@@ -27,5 +27,3 @@ const customerOnboarding = inngest.createFunction(
     }
   },
 );
-
-export default customerOnboarding;

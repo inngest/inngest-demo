@@ -12,7 +12,7 @@ type Contact = {
   jobTitle: string;
 }
 
-const processCSVFile = inngest.createFunction(
+export default inngest.createFunction(
   { name: "Process CSV file" },
   { event: "app/csv.file.uploaded" },
   async ({ event, step }) => {
@@ -45,5 +45,3 @@ const processCSVFile = inngest.createFunction(
     return await Promise.all(importSteps);
   },
 );
-
-export default processCSVFile;
