@@ -8,14 +8,14 @@ const customerOnboarding = inngest.createFunction(
       // Send welcome email
     })
 
-    await step.sleep("2d");
+    await step.sleep("2s"); // Replace with 2 days in production
 
     await step.run("Send “New in Stock” email", async () => {
       // Send “New in Stock” email
     });
 
     const emailOpenedEvent = await step.waitForEvent("app/email.opened", {
-      timeout: "3d",
+      timeout: "3s", // Replace with 3 days in production
       if: "event.data.userId == async.data.userId &&" +
           "async.event.data.template.name == 'New in Stock'"
     });
