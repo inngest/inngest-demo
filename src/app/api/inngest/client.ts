@@ -8,6 +8,7 @@ const inngest = new Inngest({
     AppCSVFileUploaded |
     AppUserSignedUp
   >(),
+  eventKey: process.env.NEXT_PUBLIC_INNGEST_EVENT_KEY,
 });
 
 export default inngest;
