@@ -39,7 +39,7 @@ export default function ScheduledFunctionsPage() {
           <div className="lg:col-span-3 overflow-auto min-h-full flex items-center rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
             {/* Illustration */}
             <a
-              href="https://localhost:8288/"
+              href="http://localhost:8288/"
               className="bg-slate-900 hover:bg-slate-800 transition-colors rounded-lg p-4 text-center"
             >
               Open Dev Server
