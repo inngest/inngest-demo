@@ -3,14 +3,14 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="justify-between max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4 space-y-24">
-      <div className="mx-auto max-w-3xl text-center space-y-4">
+      <div className="px-4 mx-auto max-w-3xl text-center space-y-4">
         <h1 className="text-3xl lg:text-5xl font-semibold">Use Cases</h1>
         <p className="[text-wrap:balance] text-sm md:text-base text-indigo-200">
           Inngest provides you all the tools that you need to build powerful applications within
           your existing codebase.
         </p>
       </div>
-      <div className="grid gap-4 grid-cols-3 w-full">
+      <div className="px-4 grid gap-4 grid-cols-1 max-w-md md:grid-cols-3 md:max-w-none w-full mx-auto">
         <Link
           href="/use-cases/background-jobs"
           className="flex flex-col w-full h-[380px] p-6 overflow-hidden border hover:bg-gradient-to-b hover:from-[#050911] hover:from-70% hover:to-slate-950 hover:to-100% rounded-xl bg-[#050911] border-zinc-800 transition-colors duration-150 hover:border-slate-700"
