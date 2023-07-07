@@ -43,7 +43,7 @@ export default function WorkflowsPage() {
                 Docs
               </a>
               <a
-                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/workflows/onboarding/customerOnboarding.ts"
+                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/workflows/customer-onboarding/customerOnboarding.ts"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
               >
                 Code
