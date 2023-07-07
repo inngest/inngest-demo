@@ -1,5 +1,5 @@
 import { EventSchemas, Inngest } from 'inngest';
-import AppCSVFileUploaded from '../../use-cases/background-jobs/csv-file/AppCSVFileUploaded';
+import AppCSVFileUploaded from '@/app/use-cases/background-jobs/csv-file-import/AppCSVFileUploaded';
 import AppUserSignedUp from '../../use-cases/workflows/onboarding/AppUserSignedUp';
 import AppEmailOpened from '../../use-cases/workflows/onboarding/AppEmailOpened';
 

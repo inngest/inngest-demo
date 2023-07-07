@@ -1,4 +1,4 @@
-import processCSVFile from '../../use-cases/background-jobs/csv-file/processCSVFile';
+import processCSVFile from '@/app/use-cases/background-jobs/csv-file-import/processCSVFile';
 import generateMonthlyReport from '../../use-cases/scheduled-functions/monthly-report/generateMonthlyReport';
 import customerOnboarding from '../../use-cases/workflows/onboarding/customerOnboarding';
 import inngest from './client';

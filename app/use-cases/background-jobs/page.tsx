@@ -2,7 +2,7 @@
 
 export default function BackgroundJobsPage() {
   async function triggerFileUpload() {
-    await fetch('/use-cases/background-jobs/csv-file', { method: 'PUT' });
+    await fetch('/use-cases/background-jobs/csv-file-import', { method: 'PUT' });
   }
 
   return (
@@ -33,7 +33,7 @@ export default function BackgroundJobsPage() {
                 Docs
               </a>
               <a
-                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/background-jobs/csv-file/processCSVFile.ts"
+                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/background-jobs/csv-file-import/processCSVFile.ts"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
               >
                 Code
