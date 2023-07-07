@@ -35,13 +35,14 @@ export default function WorkflowsPage() {
             <h2 className="text-2xl font-bold">Customer Onboarding</h2>
             <div className="space-y-2">
               <p>
-                This example demonstrate a CSV import functionality that allows the user to import a
-                list of contacts. The CSV file is uploaded and then processed in the background by
-                an Inngest function.
+                This is an example of a typical onboarding workflow that is triggered when a new
+                user signs up. The workflow sends a welcome email and follows up other ones to
+                keep the user engaged.
               </p>
               <p>
-                By using an Inngest function, you don’t have to worry about timeouts or rate limits
-                when saving the contacts. Inngest will automatically retry failed requests for you.
+                With Inngest, you can easily build reliable and complex workflows that involve
+                multiple steps and services. You can delay and schedule steps to run at a specific
+                time. Each step is automatically retried if it fails.
               </p>
             </div>
             <div className="flex gap-2">
