@@ -10,24 +10,24 @@ type Contact = {
   phone: string;
   birthDate: string;
   jobTitle: string;
-}
+};
 
 export default inngest.createFunction(
-  { name: "Process CSV file" },
-  { event: "app/csv.file.uploaded" },
+  { name: 'Process CSV file' },
+  { event: 'app/csv.file.uploaded' },
   async ({ event, step }) => {
-    const fileContent = await step.run("Read file content", async () => {
+    const fileContent = await step.run('Read file content', async () => {
       const fileURL = event.data.url;
       const csvFilePath = path.join(process.cwd(), fileURL);
       const buffer = await fs.readFile(csvFilePath);
       return buffer.toString();
     });
 
-    const records = await step.run("Parse CSV", async () => {
+    const records = await step.run('Parse CSV', async () => {
       return parse(fileContent, { columns: true, bom: true }) as Contact[];
     });
 
-    const batches = await step.run("Split records into batches", async () => {
+    const batches = await step.run('Split records into batches', async () => {
       return records.reduce<Contact[][]>((batches, record, index) => {
         const batchIndex = Math.floor(index / 100);
         batches[batchIndex] = [...(batches[batchIndex] || []), record];
@@ -36,7 +36,7 @@ export default inngest.createFunction(
     });
 
     const importSteps = batches.map((batch) =>
-      step.run("Import contact batch", () => {
+      step.run('Import contact batch', () => {
         // API call to import contacts
         return { success: true, message: `${batch.length} contacts imported.` };
       }),

@@ -8,7 +8,7 @@ export async function PUT(request: NextRequest) {
     name: 'app/csv.file.uploaded',
     data: {
       url,
-    }
+    },
   });
 
   return NextResponse.json({ url });
@@ -19,5 +19,5 @@ async function fakeUpload(file: NextRequest['body']) {
     url: '/public/500-contacts.csv',
     uploadedAt: new Date(),
     contentType: 'text/csv',
-  }
+  };
 }

@@ -6,6 +6,6 @@ export default interface AppEmailOpened extends EventPayload {
     userId: string;
     template: {
       name: string;
-    }
+    };
   };
 }
