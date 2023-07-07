@@ -23,13 +23,13 @@ export default function ScheduledFunctionsPage() {
             </div>
             <div className="flex gap-2">
               <a
-                href="https://www.inngest.com/docs/functions/multi-step"
+                href="https://www.inngest.com/docs/guides/scheduled-functions"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
               >
                 Docs
               </a>
               <a
-                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/workflows/onboarding/customerOnboarding.ts"
+                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/scheduled-functions/monthly-report/generateMonthlyReport.ts"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
               >
                 Code
@@ -38,12 +38,12 @@ export default function ScheduledFunctionsPage() {
           </div>
           <div className="lg:col-span-3 overflow-auto min-h-full flex items-center rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
             {/* Illustration */}
-            <button
-              type="button"
+            <a
+              href="https://localhost:8288/"
               className="bg-slate-900 hover:bg-slate-800 transition-colors rounded-lg p-4 text-center"
             >
               Open Dev Server
-            </button>
+            </a>
           </div>
         </div>
       </div>
