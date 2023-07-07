@@ -1,15 +1,29 @@
 'use client';
 
-export default function ScheduledFunctionsPage() {
+import inngest from '../../api/inngest/client';
+
+export default function WorkflowsPage() {
+  async function triggerUserSignUp() {
+    await inngest.send({
+      name: 'app/user.signed.up',
+      data: {
+        userId: '123',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'doej@example.com',
+      },
+    });
+  }
+
   return (
     <div className="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4 space-y-24">
       <div className="mx-auto max-w-2xl lg:text-center">
-        <h1 className="text-4xl font-bold">Scheduled Functions</h1>
+        <h1 className="text-4xl font-bold">Workflows</h1>
       </div>
       <div className="mx-auto max-w-2xl px-4 lg:max-w-none">
         <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
           <div className="space-y-4 lg:col-span-2">
-            <h2 className="text-2xl font-bold">Monthly Report</h2>
+            <h2 className="text-2xl font-bold">Customer Onboarding</h2>
             <div className="space-y-2">
               <p>
                 This example demonstrate a CSV import functionality that allows the user to import a
@@ -29,7 +43,7 @@ export default function ScheduledFunctionsPage() {
                 Docs
               </a>
               <a
-                href="https://github.com/inngest/inngest-demo/blob/main/src/app/use-cases/workflows/onboarding/customerOnboarding.ts"
+                href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/workflows/onboarding/customerOnboarding.ts"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
               >
                 Code
@@ -41,8 +55,9 @@ export default function ScheduledFunctionsPage() {
             <button
               type="button"
               className="bg-slate-900 hover:bg-slate-800 transition-colors rounded-lg p-4 text-center"
+              onClick={triggerUserSignUp}
             >
-              Open Dev Server
+              User Sign Up
             </button>
           </div>
         </div>

@@ -1,7 +1,7 @@
 import { EventSchemas, Inngest } from 'inngest';
-import AppCSVFileUploaded from '@/app/use-cases/background-jobs/csv-file/AppCSVFileUploaded';
-import AppUserSignedUp from '@/app/use-cases/workflows/onboarding/AppUserSignedUp';
-import AppEmailOpened from '@/app/use-cases/workflows/onboarding/AppEmailOpened';
+import AppCSVFileUploaded from '../../use-cases/background-jobs/csv-file/AppCSVFileUploaded';
+import AppUserSignedUp from '../../use-cases/workflows/onboarding/AppUserSignedUp';
+import AppEmailOpened from '../../use-cases/workflows/onboarding/AppEmailOpened';
 
 const inngest = new Inngest({
   name: 'Inngest Demo',

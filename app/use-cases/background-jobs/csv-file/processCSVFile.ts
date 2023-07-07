@@ -1,4 +1,4 @@
-import inngest from '@/app/api/inngest/client';
+import inngest from '../../../api/inngest/client';
 import { parse } from 'csv-parse/sync';
 import fs from 'node:fs/promises';
 import path from 'path';

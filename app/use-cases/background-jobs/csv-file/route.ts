@@ -1,4 +1,4 @@
-import inngest from '@/app/api/inngest/client';
+import inngest from '../../../api/inngest/client';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function PUT(request: NextRequest) {

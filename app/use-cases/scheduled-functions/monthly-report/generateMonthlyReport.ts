@@ -1,4 +1,4 @@
-import inngest from '@/app/api/inngest/client';
+import inngest from '../../../api/inngest/client';
 
 export default inngest.createFunction(
   { name: 'Generate monthly report' },
