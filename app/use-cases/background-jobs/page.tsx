@@ -34,6 +34,7 @@ export default function BackgroundJobsPage() {
             <div className="flex gap-2">
               <a
                 href="https://www.inngest.com/docs/guides/background-jobs"
+                target="_blank"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
               >
                 Docs
@@ -43,6 +44,7 @@ export default function BackgroundJobsPage() {
               </a>
               <a
                 href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/background-jobs/csv-file-import/processCSVFile.ts"
+                target="_blank"
                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
               >
                 Code
