@@ -3,7 +3,7 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <div className="justify-between max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4 space-y-24">
-      <div className="mx-auto max-w-3xl lg:text-center space-y-4">
+      <div className="mx-auto max-w-3xl text-center space-y-4">
         <h1 className="text-3xl lg:text-5xl font-semibold">Use Cases</h1>
         <p className="[text-wrap:balance] text-sm md:text-base text-indigo-200">
           Inngest provides you all the tools that you need to build powerful applications within your existing codebase.

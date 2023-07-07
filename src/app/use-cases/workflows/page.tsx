@@ -28,17 +28,28 @@ export default function WorkflowsPage() {
             <h2 className="text-2xl font-bold">
               Customer Onboarding
             </h2>
-            <p className="text-indigo-200">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis nec
-            </p>
+            <div className="space-y-2">
+              <p>
+                This example demonstrate a CSV import functionality that allows the user to import a
+                list of contacts. The CSV file is uploaded and then processed in the background by an
+                Inngest function.
+              </p>
+              <p>
+                By using an Inngest function, you don’t have to worry about
+                timeouts or rate limits when saving the contacts. Inngest will automatically retry
+                failed requests for you.
+              </p>
+            </div>
             <div className="flex gap-2">
               <a
                 href="https://www.inngest.com/docs/functions/multi-step"
-                className="rounded-lg bg-slate-700 px-3 py-1 text-sm font-medium text-slate-100 no-underline hover:bg-slate-500 hover:text-white">
+                className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
+                >
                 Docs
               </a>
               <a href="https://github.com/inngest/inngest-demo/blob/main/src/app/use-cases/workflows/onboarding/customerOnboarding.ts"
-                 className="rounded-lg bg-slate-700 px-3 py-1 text-sm font-medium text-slate-100 no-underline hover:bg-slate-500 hover:text-white">
+                 className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm px-4 py-2 inline-flex items-center"
+                 >
                 Code
               </a>
             </div>
@@ -48,10 +59,10 @@ export default function WorkflowsPage() {
             {/* Illustration */}
             <button
               type="button"
-              className="relative block rounded-lg bg-zinc-900/80 p-4 text-center group hover:border-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+              className="bg-slate-900 hover:bg-slate-800 transition-colors rounded-lg p-4 text-center"
               onClick={triggerUserSignUp}
             >
-              <span className="mt-2 block text-sm font-semibold text-slate-100">User Sign Up</span>
+              User Sign Up
             </button>
           </div>
         </div>
