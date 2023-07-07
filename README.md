@@ -8,9 +8,9 @@ starting point for your own application.
 You can try out this demo by installing it locally with one of the following commands:
 
 ```shell
-npm create next-app -- --example https://github.com/inngest/inngest-demo inngest-demo-app
+npm create next-app@latest -- --example https://github.com/inngest/inngest-demo inngest-demo-app
 # or
 yarn create next-app --example https://github.com/inngest/inngest-demo inngest-demo-app
 # or
-pnpm create next-app --example https://github.com/inngest/inngest-demo inngest-demo-app
+pnpm create next-app@latest --example https://github.com/inngest/inngest-demo inngest-demo-app
 ```
