@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`antialiased bg-[url('/grid.svg')] bg-[#050911] text-white ${inter.className}`}>{children}</body>
+      <body className={`antialiased bg-[url('/grid.svg')] bg-slate-1000 text-white ${inter.className}`}>{children}</body>
     </html>
   )
 }

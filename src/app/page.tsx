@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div className="justify-between max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4 space-y-24">
       <div className="mx-auto max-w-2xl lg:text-center">
-        <h1 className="text-4xl font-bold">Use Cases</h1>
+        <h1 className="text-3xl lg:text-5xl font-semibold">Use Cases</h1>
       </div>
       <div className="grid gap-4 grid-cols-3 w-full">
         <Link href="/use-cases/background-jobs" className="flex flex-col w-full h-[380px] p-6 overflow-hidden border hover:bg-gradient-to-b hover:from-[#050911] hover:from-70% hover:to-slate-950 hover:to-100% rounded-xl bg-[#050911] border-zinc-800 transition-colors duration-150 hover:border-slate-700">
