@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "concurrently \"next dev\" \"inngest-cli dev\" --hide 1 --prefix none",
     "build": "next build",
     "start": "next start"
   },
@@ -10,8 +10,10 @@
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "concurrently": "8.2.0",
     "csv-parse": "5.4.0",
     "inngest": "2.1.0",
+    "inngest-cli": "latest",
     "next": "13.4.8",
     "postcss": "8.4.24",
     "react": "18.2.0",
