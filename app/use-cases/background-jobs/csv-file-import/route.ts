@@ -16,7 +16,7 @@ export async function PUT(request: NextRequest) {
 
 async function fakeUpload(file: NextRequest['body']) {
   // Simulate upload time
-  await new Promise(r => setTimeout(r, 2_000));
+  await new Promise((r) => setTimeout(r, 2_000));
 
   return {
     url: '/public/500-contacts.csv',
