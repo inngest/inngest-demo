@@ -5,9 +5,10 @@ export default function Home() {
     <div className="justify-between max-w-7xl mx-auto py-24 sm:px-2 sm:py-32 lg:px-4 space-y-24">
       <div className="px-4 mx-auto max-w-3xl text-center space-y-4">
         <h1 className="text-3xl lg:text-5xl font-semibold">Use Cases</h1>
-        <p className="[text-wrap:balance] text-sm md:text-base text-indigo-200">
+        <p className="text-sm md:text-base text-indigo-200">
           Inngest provides you all the tools that you need to build powerful applications within
-          your existing codebase.
+          your existing codebase. Explore and try out our demo functions to see how you can use
+          Inngest to power your apps.
         </p>
       </div>
       <div className="px-4 grid gap-4 grid-cols-1 max-w-md md:grid-cols-3 md:max-w-none w-full mx-auto">
