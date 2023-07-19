@@ -1,11 +1,11 @@
-import processCSVFile from '@/app/use-cases/background-jobs/csv-file-import/processCSVFile';
-import generateMonthlyReport from '../../use-cases/scheduled-functions/monthly-report/generateMonthlyReport';
-import customerOnboarding from '@/app/use-cases/workflows/customer-onboarding/customerOnboarding';
-import inngest from './client';
 import { serve } from 'inngest/next';
+import inngest from './client';
+import { importContactsFromCSVFile } from '@/app/use-cases/background-jobs/csv-file-import/inngest';
+import { generateMonthlyReport } from '@/app/use-cases/scheduled-functions/monthly-report/inngest';
+import { customerOnboarding } from '@/app/use-cases/workflows/customer-onboarding/inngest';
 
 export const { GET, POST, PUT } = serve(inngest, [
-  processCSVFile,
+  importContactsFromCSVFile,
   customerOnboarding,
   generateMonthlyReport,
 ]);

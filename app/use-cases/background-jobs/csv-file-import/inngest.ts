@@ -1,7 +1,15 @@
-import inngest from '../../../api/inngest/client';
+import { EventPayload } from 'inngest';
 import { parse } from 'csv-parse/sync';
 import fs from 'node:fs/promises';
 import path from 'path';
+import inngest from '@/app/api/inngest/client';
+
+export interface AppCSVFileUploaded extends EventPayload {
+  name: 'app/csv.file.uploaded';
+  data: {
+    url: string;
+  };
+}
 
 type Contact = {
   firstName: string;
@@ -12,8 +20,8 @@ type Contact = {
   jobTitle: string;
 };
 
-export default inngest.createFunction(
-  { name: 'Process CSV file' },
+export const importContactsFromCSVFile = inngest.createFunction(
+  { name: 'Import contacts from CSV file' },
   { event: 'app/csv.file.uploaded' },
   async ({ event, step }) => {
     const fileContent = await step.run('Read file content', async () => {

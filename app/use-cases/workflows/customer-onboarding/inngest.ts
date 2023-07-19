@@ -1,6 +1,27 @@
-import inngest from '../../../api/inngest/client';
+import type { EventPayload } from 'inngest';
+import inngest from '@/app/api/inngest/client';
 
-export default inngest.createFunction(
+export interface AppUserSignedUp extends EventPayload {
+  name: 'app/user.signed.up';
+  data: {
+    userId: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+  };
+}
+
+export interface AppEmailOpened extends EventPayload {
+  name: 'app/email.opened';
+  data: {
+    userId: string;
+    template: {
+      name: string;
+    };
+  };
+}
+
+export const customerOnboarding = inngest.createFunction(
   { name: 'Customer Onboarding' },
   { event: 'app/user.signed.up' },
   async ({ event, step }) => {
