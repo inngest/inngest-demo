@@ -1,8 +1,5 @@
 import { AppCSVFileUploaded } from '@/app/background-jobs/csv-file-import/inngest';
-import {
-  AppEmailOpened,
-  AppUserSignedUp,
-} from '@/app/workflows/customer-onboarding/inngest';
+import { AppEmailOpened, AppUserSignedUp } from '@/app/workflows/customer-onboarding/inngest';
 import { EventSchemas, Inngest } from 'inngest';
 
 const inngest = new Inngest({
