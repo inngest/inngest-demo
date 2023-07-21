@@ -1,26 +1,50 @@
 'use client';
 
-import UseCaseLayout from '@/app/use-cases/UseCaseLayout';
+import UseCaseLayout from '@/app/UseCaseLayout';
+import { useState } from 'react';
+import inngest from '@/app/api/inngest/client';
 
-export default function ScheduledFunctionsPage() {
+export default function WorkflowsPage() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  async function triggerUserSignUp() {
+    setIsLoading(true);
+    // Artificial delay to simulate a network request
+    await new Promise((r) => setTimeout(r, 1_000));
+
+    await inngest.send({
+      name: 'app/user.signed.up',
+      data: {
+        userId: '123',
+        firstName: 'John',
+        lastName: 'Doe',
+        email: 'doej@example.com',
+      },
+    });
+
+    setIsLoading(false);
+  }
+
   return (
-    <UseCaseLayout title="Scheduled Functions">
+    <UseCaseLayout title="Workflows">
       <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
         <div className="space-y-4 lg:col-span-2">
-          <h2 className="text-2xl font-bold">Monthly Report</h2>
+          <h2 className="text-2xl font-bold">Customer Onboarding</h2>
           <div className="space-y-2">
             <p>
-              This example demonstrate an Inngest function that automatically generate a report at
-              the end of each month (for demo purposes, the report is generated every 5 minutes.)
+              This is an example of a typical onboarding workflow that is triggered when a new user
+              signs up. The workflow sends a welcome email and follows up other ones to keep the
+              user engaged.
             </p>
             <p>
-              If a report fails to generate (e.g. because of a network error), Inngest will
-              automatically retry the request for you.
+              With Inngest, you can easily build reliable and complex workflows that involve
+              multiple steps and services. You can delay and schedule steps to run at a specific
+              time. Each step is automatically retried if it fails.
             </p>
           </div>
           <div className="flex gap-2">
             <a
-              href="https://www.inngest.com/docs/guides/scheduled-functions"
+              href="https://www.inngest.com/docs/functions/multi-step"
               target="_blank"
               className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
             >
@@ -39,7 +63,7 @@ export default function ScheduledFunctionsPage() {
               </svg>
             </a>
             <a
-              href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/scheduled-functions/monthly-report/generateMonthlyReport.ts"
+              href="https://github.com/inngest/inngest-demo/blob/main/app/workflows/customer-onboarding/inngest.ts"
               target="_blank"
               className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
             >
@@ -61,6 +85,24 @@ export default function ScheduledFunctionsPage() {
         </div>
         <div className="lg:col-span-3 relative overflow-auto min-h-full flex items-center rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
           {/* Illustration */}
+          <button
+            type="button"
+            className={`bg-slate-900 inline-flex items-center text-sm gap-x-1.5 font-semibold text-slate-100 hover:bg-slate-800 transition-colors rounded-lg py-3 px-4 text-center group ${
+              isLoading ? 'cursor-wait' : ''
+            }`}
+            onClick={triggerUserSignUp}
+            disabled={isLoading}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="w-3 h-3"
+            >
+              <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
+            </svg>
+            Sign Up
+          </button>
           <a
             href="http://localhost:8288/"
             target="_blank"

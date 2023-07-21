@@ -1,36 +1,26 @@
 'use client';
 
-import UseCaseLayout from '@/app/use-cases/UseCaseLayout';
-import { useState } from 'react';
+import UseCaseLayout from '@/app/UseCaseLayout';
 
-export default function BackgroundJobsPage() {
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function triggerFileUpload() {
-    setIsLoading(true);
-    await fetch('/use-cases/background-jobs/csv-file-import', { method: 'PUT' });
-    setIsLoading(false);
-  }
-
+export default function ScheduledFunctionsPage() {
   return (
-    <UseCaseLayout title="Background Jobs">
+    <UseCaseLayout title="Scheduled Functions">
       <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
         <div className="space-y-4 lg:col-span-2">
-          <h2 className="text-2xl font-bold">CSV File Import</h2>
+          <h2 className="text-2xl font-bold">Monthly Report</h2>
           <div className="space-y-2">
             <p>
-              This example demonstrate a CSV import functionality that allows the user to import a
-              list of contacts. The CSV file is uploaded and then processed in the background by an
-              Inngest function.
+              This example demonstrate an Inngest function that automatically generate a report at
+              the end of each month (for demo purposes, the report is generated every 5 minutes.)
             </p>
             <p>
-              By using an Inngest function, you don’t have to worry about timeouts or rate limits
-              when saving the contacts. Inngest will automatically retry failed requests for you.
+              If a report fails to generate (e.g. because of a network error), Inngest will
+              automatically retry the request for you.
             </p>
           </div>
           <div className="flex gap-2">
             <a
-              href="https://www.inngest.com/docs/guides/background-jobs"
+              href="https://www.inngest.com/docs/guides/scheduled-functions"
               target="_blank"
               className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
             >
@@ -49,7 +39,7 @@ export default function BackgroundJobsPage() {
               </svg>
             </a>
             <a
-              href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/background-jobs/csv-file-import/processCSVFile.ts"
+              href="https://github.com/inngest/inngest-demo/blob/main/app/scheduled-functions/monthly-report/inngest.ts"
               target="_blank"
               className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
             >
@@ -71,46 +61,6 @@ export default function BackgroundJobsPage() {
         </div>
         <div className="lg:col-span-3 relative overflow-auto min-h-full flex items-center rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
           {/* Illustration */}
-          <button
-            type="button"
-            className={`bg-slate-900 text-sm font-semibold text-slate-100 hover:bg-slate-800 transition-colors rounded-lg p-4 text-center group ${
-              isLoading ? 'cursor-wait' : ''
-            }`}
-            onClick={triggerFileUpload}
-            disabled={isLoading}
-          >
-            <div className="mx-auto h-8 w-8 group-hover:text-slate-400 text-slate-600 relative">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className={`absolute ${isLoading ? 'animate-bounce' : ''}`}
-              >
-                <path
-                  d="M7.5 7.5L12 3M12 3L16.5 7.5M12 3V16.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="absolute"
-              >
-                <path
-                  d="M3 16.5V18.75C3 19.3467 3.23705 19.919 3.65901 20.341C4.08097 20.7629 4.65326 21 5.25 21H18.75C19.3467 21 19.919 20.7629 20.341 20.341C20.7629 19.919 21 19.3467 21 18.75V16.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-            <span className="mt-2 block">File Upload</span>
-          </button>
           <a
             href="http://localhost:8288/"
             target="_blank"

@@ -112,8 +112,8 @@ export function Nav() {
       >
         <ul className="space-y-6 px-2 py-5">
           {useCases.map((category) => {
-            const segments = useSelectedLayoutSegments();
-            const isActive = segments.includes(category.slug);
+            const segment = useSelectedLayoutSegment();
+            const isActive = segment === category.slug;
 
             return (
               <li key={category.name} className="space-y-2">
@@ -152,16 +152,12 @@ function NavItem({
   categorySlug: string;
   close: () => false | void;
 }) {
-  const segment = useSelectedLayoutSegment();
-  const isActive = item.slug === segment;
-
   return (
     <li>
       <Link
         onClick={close}
-        href={`/use-cases/${categorySlug}#${item.slug}`}
-        className={`block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300
-          ${isActive ? 'text-white' : 'text-gray-400 hover:bg-gray-800'}`}
+        href={`/${categorySlug}#${item.slug}`}
+        className="block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300 text-gray-400 hover:bg-gray-800"
       >
         {item.name}
       </Link>

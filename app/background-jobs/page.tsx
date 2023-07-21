@@ -1,50 +1,36 @@
 'use client';
 
-import UseCaseLayout from '@/app/use-cases/UseCaseLayout';
+import UseCaseLayout from '@/app/UseCaseLayout';
 import { useState } from 'react';
-import inngest from '@/app/api/inngest/client';
 
-export default function WorkflowsPage() {
+export default function BackgroundJobsPage() {
   const [isLoading, setIsLoading] = useState(false);
 
-  async function triggerUserSignUp() {
+  async function triggerFileUpload() {
     setIsLoading(true);
-    // Artificial delay to simulate a network request
-    await new Promise((r) => setTimeout(r, 1_000));
-
-    await inngest.send({
-      name: 'app/user.signed.up',
-      data: {
-        userId: '123',
-        firstName: 'John',
-        lastName: 'Doe',
-        email: 'doej@example.com',
-      },
-    });
-
+    await fetch('/background-jobs/csv-file-import', { method: 'PUT' });
     setIsLoading(false);
   }
 
   return (
-    <UseCaseLayout title="Workflows">
+    <UseCaseLayout title="Background Jobs">
       <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
         <div className="space-y-4 lg:col-span-2">
-          <h2 className="text-2xl font-bold">Customer Onboarding</h2>
+          <h2 className="text-2xl font-bold">CSV File Import</h2>
           <div className="space-y-2">
             <p>
-              This is an example of a typical onboarding workflow that is triggered when a new user
-              signs up. The workflow sends a welcome email and follows up other ones to keep the
-              user engaged.
+              This example demonstrate a CSV import functionality that allows the user to import a
+              list of contacts. The CSV file is uploaded and then processed in the background by an
+              Inngest function.
             </p>
             <p>
-              With Inngest, you can easily build reliable and complex workflows that involve
-              multiple steps and services. You can delay and schedule steps to run at a specific
-              time. Each step is automatically retried if it fails.
+              By using an Inngest function, you don’t have to worry about timeouts or rate limits
+              when saving the contacts. Inngest will automatically retry failed requests for you.
             </p>
           </div>
           <div className="flex gap-2">
             <a
-              href="https://www.inngest.com/docs/functions/multi-step"
+              href="https://www.inngest.com/docs/guides/background-jobs"
               target="_blank"
               className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
             >
@@ -63,7 +49,7 @@ export default function WorkflowsPage() {
               </svg>
             </a>
             <a
-              href="https://github.com/inngest/inngest-demo/blob/main/app/use-cases/workflows/customer-onboarding/customerOnboarding.ts"
+              href="https://github.com/inngest/inngest-demo/blob/main/app/background-jobs/csv-file-import/inngest.ts"
               target="_blank"
               className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
             >
@@ -87,21 +73,43 @@ export default function WorkflowsPage() {
           {/* Illustration */}
           <button
             type="button"
-            className={`bg-slate-900 inline-flex items-center text-sm gap-x-1.5 font-semibold text-slate-100 hover:bg-slate-800 transition-colors rounded-lg py-3 px-4 text-center group ${
+            className={`bg-slate-900 text-sm font-semibold text-slate-100 hover:bg-slate-800 transition-colors rounded-lg p-4 text-center group ${
               isLoading ? 'cursor-wait' : ''
             }`}
-            onClick={triggerUserSignUp}
+            onClick={triggerFileUpload}
             disabled={isLoading}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-3 h-3"
-            >
-              <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
-            </svg>
-            Sign Up
+            <div className="mx-auto h-8 w-8 group-hover:text-slate-400 text-slate-600 relative">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className={`absolute ${isLoading ? 'animate-bounce' : ''}`}
+              >
+                <path
+                  d="M7.5 7.5L12 3M12 3L16.5 7.5M12 3V16.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="absolute"
+              >
+                <path
+                  d="M3 16.5V18.75C3 19.3467 3.23705 19.919 3.65901 20.341C4.08097 20.7629 4.65326 21 5.25 21H18.75C19.3467 21 19.919 20.7629 20.341 20.341C20.7629 19.919 21 19.3467 21 18.75V16.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </div>
+            <span className="mt-2 block">File Upload</span>
           </button>
           <a
             href="http://localhost:8288/"

@@ -13,7 +13,7 @@ export default function Home() {
       </hgroup>
       <div className="px-4 grid gap-4 grid-cols-1 max-w-md xl:grid-cols-3 xl:max-w-none w-full mx-auto">
         <Link
-          href="/use-cases/background-jobs"
+          href="/background-jobs"
           className="flex flex-col w-full h-[380px] p-6 overflow-hidden border hover:bg-gradient-to-b hover:from-[#050911] hover:from-70% hover:to-slate-950 hover:to-100% rounded-xl bg-[#050911] border-zinc-800 transition-colors duration-150 hover:border-slate-700"
         >
           <div className="h-full">{/* Illustration */}</div>
@@ -23,7 +23,7 @@ export default function Home() {
           </p>
         </Link>
         <Link
-          href="/use-cases/workflows"
+          href="/workflows"
           className="flex flex-col w-full h-[380px] p-6 overflow-hidden border hover:bg-gradient-to-b hover:from-[#050911] hover:from-70% hover:to-slate-950 hover:to-100% rounded-xl bg-[#050911] border-zinc-800 transition-colors duration-150 hover:border-slate-700"
         >
           <div className="h-full">{/* Illustration */}</div>
@@ -33,7 +33,7 @@ export default function Home() {
           </p>
         </Link>
         <Link
-          href="/use-cases/scheduled-functions"
+          href="/scheduled-functions"
           className="flex flex-col w-full h-[380px] p-6 overflow-hidden border hover:bg-gradient-to-b hover:from-[#050911] hover:from-70% hover:to-slate-950 hover:to-100% rounded-xl bg-[#050911] border-zinc-800 transition-colors duration-150 hover:border-slate-700"
         >
           <div className="h-full">{/* Illustration */}</div>
