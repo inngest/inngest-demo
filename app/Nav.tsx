@@ -117,7 +117,8 @@ export function Nav() {
 
             return (
               <li key={category.name} className="space-y-2">
-                <span className={`px-3 text-xs font-semibold uppercase tracking-wider 
+                <span
+                  className={`px-3 text-xs font-semibold uppercase tracking-wider 
                   ${isActive ? 'text-white' : 'text-gray-400/80'}`}
                 >
                   {category.name}
@@ -125,7 +126,12 @@ export function Nav() {
 
                 <ul className="space-y-1">
                   {category.items.map((item) => (
-                    <NavItem key={item.slug} item={item} categorySlug={category.slug} close={close} />
+                    <NavItem
+                      key={item.slug}
+                      item={item}
+                      categorySlug={category.slug}
+                      close={close}
+                    />
                   ))}
                 </ul>
               </li>
@@ -137,7 +143,15 @@ export function Nav() {
   );
 }
 
-function NavItem({ item, categorySlug, close }: { item: Item; categorySlug: string, close: () => false | void }) {
+function NavItem({
+  item,
+  categorySlug,
+  close,
+}: {
+  item: Item;
+  categorySlug: string;
+  close: () => false | void;
+}) {
   const segment = useSelectedLayoutSegment();
   const isActive = item.slug === segment;
 
