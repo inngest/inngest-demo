@@ -1,7 +1,7 @@
 'use client';
 
-import CategoryLayout from '@/app/CategoryLayout';
-import UseCaseExample from '@/app/UseCaseExample';
+import UseCaseCategoryLayout from '@/app/(use-cases)/UseCaseCategoryLayout';
+import UseCaseExample from '@/app/(use-cases)/UseCaseExample';
 import { useState } from 'react';
 import inngest from '@/app/api/inngest/client';
 
@@ -27,7 +27,7 @@ export default function WorkflowsPage() {
   }
 
   return (
-    <CategoryLayout title="Workflows">
+    <UseCaseCategoryLayout title="Workflows">
       <UseCaseExample
         name="Customer Onboarding"
         description="
@@ -82,6 +82,6 @@ export default function WorkflowsPage() {
           </>
         }
       />
-    </CategoryLayout>
+    </UseCaseCategoryLayout>
   );
 }

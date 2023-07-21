@@ -1,11 +1,11 @@
 'use client';
 
-import CategoryLayout from '@/app/CategoryLayout';
-import UseCaseExample from '@/app/UseCaseExample';
+import UseCaseCategoryLayout from '@/app/(use-cases)/UseCaseCategoryLayout';
+import UseCaseExample from '@/app/(use-cases)/UseCaseExample';
 
 export default function ScheduledFunctionsPage() {
   return (
-    <CategoryLayout title="Scheduled Functions">
+    <UseCaseCategoryLayout title="Scheduled Functions">
       <UseCaseExample
         name="Monthly Report"
         description="This example demonstrate an Inngest function that automatically generate a report at the end of each month (for demo purposes, the report is generated every 5 minutes.)"
@@ -36,6 +36,6 @@ export default function ScheduledFunctionsPage() {
           </a>
         }
       />
-    </CategoryLayout>
+    </UseCaseCategoryLayout>
   );
 }

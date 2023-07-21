@@ -1,7 +1,7 @@
 'use client';
 
-import CategoryLayout from '@/app/CategoryLayout';
-import UseCaseExample from '@/app/UseCaseExample';
+import UseCaseCategoryLayout from '@/app/(use-cases)/UseCaseCategoryLayout';
+import UseCaseExample from '@/app/(use-cases)/UseCaseExample';
 import { useState } from 'react';
 
 export default function BackgroundJobsPage() {
@@ -14,7 +14,7 @@ export default function BackgroundJobsPage() {
   }
 
   return (
-    <CategoryLayout title="Background Jobs">
+    <UseCaseCategoryLayout title="Background Jobs">
       <UseCaseExample
         name="CSV File Import"
         description="This example demonstrate a CSV import functionality that allows the user to import a list of contacts. The CSV file is uploaded and then processed in the background by an Inngest function."
@@ -87,6 +87,6 @@ export default function BackgroundJobsPage() {
           </>
         }
       />
-    </CategoryLayout>
+    </UseCaseCategoryLayout>
   );
 }
