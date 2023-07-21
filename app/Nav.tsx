@@ -1,8 +1,9 @@
 'use client';
 
+import useCases, { type Example } from '@/app/useCases';
 import Link from 'next/link';
 import InngestLogo from './InngestLogo';
-import { useSelectedLayoutSegment, useSelectedLayoutSegments } from 'next/navigation';
+import { useSelectedLayoutSegment } from 'next/navigation';
 import { useState } from 'react';
 
 function MenuIcon({ className }: { className?: string }) {
@@ -40,47 +41,6 @@ function XIcon({ className }: { className?: string }) {
     </svg>
   );
 }
-
-export type Item = {
-  name: string;
-  slug: string;
-};
-
-export const useCases: { name: string; description: string; slug: string; items: Item[] }[] = [
-  {
-    name: 'Background Jobs',
-    description: 'Run reliable background jobs without deploying any new infrastructure.',
-    slug: 'background-jobs',
-    items: [
-      {
-        name: 'CSV File Import',
-        slug: 'csv-file-import',
-      },
-    ],
-  },
-  {
-    name: 'Workflows',
-    description: 'Build complex workflows in minutes without file configurations.',
-    slug: 'workflows',
-    items: [
-      {
-        name: 'Customer Onboarding',
-        slug: 'customer-onboarding',
-      },
-    ],
-  },
-  {
-    name: 'Scheduled Functions',
-    description: 'Run functions on a schedule that automatically retries on failure.',
-    slug: 'scheduled-functions',
-    items: [
-      {
-        name: 'Monthly Report',
-        slug: 'monthly-report',
-      },
-    ],
-  },
-];
 
 export function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -125,7 +85,7 @@ export function Nav() {
                 </span>
 
                 <ul className="space-y-1">
-                  {category.items.map((item) => (
+                  {category.examples.map((item) => (
                     <NavItem
                       key={item.slug}
                       item={item}
@@ -148,7 +108,7 @@ function NavItem({
   categorySlug,
   close,
 }: {
-  item: Item;
+  item: Example;
   categorySlug: string;
   close: () => false | void;
 }) {

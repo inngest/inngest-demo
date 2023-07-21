@@ -1,3 +1,4 @@
+import useCases from '@/app/useCases';
 import Link from 'next/link';
 
 export default function Home() {
@@ -12,24 +13,15 @@ export default function Home() {
         </p>
       </hgroup>
       <div className="px-4 grid gap-4 grid-cols-1 max-w-md xl:grid-cols-3 xl:max-w-none w-full mx-auto">
-        <UseCaseCategoryCard
-          name="Background Jobs"
-          description="Run reliable background jobs without deploying any new infrastructure."
-          illustration={<></>}
-          slug="background-jobs"
-        />
-        <UseCaseCategoryCard
-          name="Workflows"
-          description="Build complex workflows in minutes without file configurations."
-          illustration={<></>}
-          slug="workflows"
-        />
-        <UseCaseCategoryCard
-          name="Scheduled Functions"
-          description="Run functions on a schedule that automatically retries on failure."
-          illustration={<></>}
-          slug="scheduled-functions"
-        />
+        {useCases.map((category) => (
+          <UseCaseCategoryCard
+            key={category.name}
+            name={category.name}
+            description={category.description}
+            illustration={category.illustration}
+            slug={category.slug}
+          />
+        ))}
       </div>
     </div>
   );
