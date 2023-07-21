@@ -13,7 +13,7 @@
     "concurrently": "8.2.0",
     "csv-parse": "5.4.0",
     "encoding": "0.1.13",
-    "inngest": "2.1.0",
+    "inngest": "latest",
     "inngest-cli": "latest",
     "next": "13.4.8",
     "postcss": "8.4.24",
