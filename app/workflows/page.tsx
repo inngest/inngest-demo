@@ -1,6 +1,6 @@
 'use client';
 
-import UseCaseLayout from '@/app/UseCaseLayout';
+import CategoryLayout from '@/app/CategoryLayout';
 import { useState } from 'react';
 import inngest from '@/app/api/inngest/client';
 
@@ -26,7 +26,7 @@ export default function WorkflowsPage() {
   }
 
   return (
-    <UseCaseLayout title="Workflows">
+    <CategoryLayout title="Workflows">
       <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
         <div className="space-y-4 lg:col-span-2">
           <h2 className="text-2xl font-bold">Customer Onboarding</h2>
@@ -124,6 +124,6 @@ export default function WorkflowsPage() {
           </a>
         </div>
       </div>
-    </UseCaseLayout>
+    </CategoryLayout>
   );
 }

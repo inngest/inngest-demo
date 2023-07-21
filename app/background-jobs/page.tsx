@@ -1,6 +1,6 @@
 'use client';
 
-import UseCaseLayout from '@/app/UseCaseLayout';
+import CategoryLayout from '@/app/CategoryLayout';
 import { useState } from 'react';
 
 export default function BackgroundJobsPage() {
@@ -13,7 +13,7 @@ export default function BackgroundJobsPage() {
   }
 
   return (
-    <UseCaseLayout title="Background Jobs">
+    <CategoryLayout title="Background Jobs">
       <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
         <div className="space-y-4 lg:col-span-2">
           <h2 className="text-2xl font-bold">CSV File Import</h2>
@@ -132,6 +132,6 @@ export default function BackgroundJobsPage() {
           </a>
         </div>
       </div>
-    </UseCaseLayout>
+    </CategoryLayout>
   );
 }
