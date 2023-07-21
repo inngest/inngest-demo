@@ -10,7 +10,7 @@ export default function UseCaseLayout({
       <div className="mx-auto max-w-2xl px-4 lg:text-center">
         <h1 className="text-4xl font-bold">{title}</h1>
       </div>
-      <div className="mx-auto max-w-2xl px-4 lg:max-w-none">{children}</div>
+      <div className="mx-auto max-w-2xl px-4 lg:max-w-none space-y-28">{children}</div>
     </div>
   );
 }
