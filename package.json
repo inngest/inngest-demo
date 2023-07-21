@@ -6,10 +6,12 @@
     "start": "next start"
   },
   "dependencies": {
+    "@headlessui/react": "1.7.15",
     "@types/node": "20.3.3",
     "@types/react": "18.2.14",
     "@types/react-dom": "18.2.6",
     "autoprefixer": "10.4.14",
+    "bright": "0.8.3",
     "concurrently": "8.2.0",
     "csv-parse": "5.4.0",
     "encoding": "0.1.13",

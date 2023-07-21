@@ -1,4 +1,4 @@
-export default function UseCaseCategoryLayout({
+export default function CategoryLayout({
   children,
   title,
 }: {

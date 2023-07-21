@@ -1,3 +1,7 @@
+import Code from '@/app/(use-cases)/Code';
+import IllustrationDemoSwitcher from '@/app/(use-cases)/IllustrationDemoSwitcher';
+import { Suspense } from 'react';
+
 type UseCaseExampleProps = {
   name: string;
   description: string;
@@ -5,18 +9,20 @@ type UseCaseExampleProps = {
   docsHref: string;
   codeHref: string;
   illustration: React.ReactNode;
+  codeFilePath: string;
 };
 
-export default function UseCaseExample({
+export default function Example({
   name,
   description,
   benefits,
   docsHref,
   codeHref,
   illustration,
+  codeFilePath,
 }: UseCaseExampleProps) {
   return (
-    <div className="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-5">
+    <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-5">
       <div className="space-y-4 lg:col-span-2">
         <h2 className="text-2xl font-bold">{name}</h2>
         <div className="space-y-2">
@@ -64,9 +70,14 @@ export default function UseCaseExample({
           </a>
         </div>
       </div>
-      <div className="lg:col-span-3 relative overflow-auto min-h-full flex items-center rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]">
-        {illustration}
-      </div>
+      <IllustrationDemoSwitcher
+        illustration={illustration}
+        code={
+          <Suspense fallback={<p>Loading code...</p>}>
+            <Code filePath={codeFilePath} />
+          </Suspense>
+        }
+      />
     </div>
   );
 }

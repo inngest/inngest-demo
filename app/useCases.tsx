@@ -5,14 +5,13 @@ export type Category = {
   description: string;
   illustration: React.ReactNode;
   slug: string;
-  examples : Example[];
-}
+  examples: Example[];
+};
 
 export type Example = {
   name: string;
   slug: string;
 };
-
 
 const useCases: Category[] = [
   {

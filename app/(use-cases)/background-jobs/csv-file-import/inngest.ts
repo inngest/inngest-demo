@@ -1,7 +1,7 @@
 import { EventPayload } from 'inngest';
 import { parse } from 'csv-parse/sync';
 import fs from 'node:fs/promises';
-import path from 'path';
+import path from 'node:path';
 import inngest from '@/app/api/inngest/client';
 
 export interface AppCSVFileUploaded extends EventPayload {
