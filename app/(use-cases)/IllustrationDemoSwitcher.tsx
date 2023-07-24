@@ -21,13 +21,6 @@ export default function IllustrationDemoSwitcher({
         <Tab.List className="flex items-stretch justify-end rounded-t-[10px] px-3 py-1 md:m-1 md:rounded-lg space-x-1">
           <Tab className={tabClasses}>Illustration</Tab>
           <Tab className={tabClasses}>Code</Tab>
-          <div className="my-2 w-[2px] grow-0 bg-white bg-opacity-10" />
-          <button className="bg-white bg-opacity-0 hover:bg-opacity-10 pointer-events-auto relative rounded-md px-4 py-2 text-xs font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50">
-            <span>Copy</span>
-            <span className="opacity-0 absolute inset-0 flex items-center justify-center">
-              Copied!
-            </span>
-          </button>
         </Tab.List>
       </div>
       <Tab.Panels className="flex-1 overflow-auto px-1 py-4">
