@@ -10,7 +10,14 @@ export default async function BackgroundJobsPage() {
         name="CSV File Import"
         description="This example demonstrate a CSV import functionality that allows the user to import a list of contacts. The CSV file is uploaded and then processed in the background by an Inngest function."
         benefits={[
-          'By using an Inngest function, you don’t have to worry about timeouts or rate limits when saving the contacts. Inngest will automatically retry failed requests for you.',
+          {
+            name: 'Auto-retries',
+            description: 'No need to worry about timeouts or rate limits when saving the contacts. Inngest will automatically retry failed requests for you.'
+          },
+          {
+            name: 'No queues or workers required',
+            description: 'Serverless background jobs mean you don’t need to set up queues or long-running workers.'
+          }
         ]}
         docsHref="https://www.inngest.com/docs/guides/background-jobs"
         codeHref="https://github.com/inngest/inngest-demo/blob/main/app/background-jobs/csv-file-import/inngest.ts"

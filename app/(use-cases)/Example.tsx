@@ -5,7 +5,10 @@ import { Suspense } from 'react';
 type UseCaseExampleProps = {
   name: string;
   description: string;
-  benefits: string[];
+  benefits: {
+    name: string;
+    description: string;
+  }[];
   docsHref: string;
   codeHref: string;
   illustration: React.ReactNode;
@@ -27,7 +30,15 @@ export default function Example({
         <h2 className="text-2xl font-bold">{name}</h2>
         <div className="space-y-2">
           <p>{description}</p>
-          <p>{benefits[0]}</p>
+          <h3 className="text-lg font-semibold">Benefits</h3>
+          <dl className="space-y-2">
+            {benefits.map((benefit) => (
+              <div className="relative pl-9" >
+                <CheckCircle className="w-5 h-5 text-indigo-500 absolute left-1 top-0.5"/>
+                <dt className="inline font-medium text-indigo-500">{benefit.name}:</dt> <dd className="inline">{benefit.description}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
         <div className="flex gap-2">
           <a
@@ -80,4 +91,13 @@ export default function Example({
       />
     </div>
   );
+}
+
+function CheckCircle({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={className} aria-hidden="true">
+      <circle cx="10" cy="10" r="6" fill="white"/>
+      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z" clipRule="evenodd" />
+    </svg>
+  )
 }

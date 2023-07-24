@@ -14,7 +14,18 @@ export default function WorkflowsPage() {
               user engaged.
             "
         benefits={[
-          'With Inngest, you can easily build reliable and complex workflows that involve multiple steps and services. You can delay and schedule steps to run at a specific time. Each step is automatically retried if it fails.',
+          {
+            name: 'Custom delays',
+            description: 'Pause for an amount of time or until a specified time.',
+          },
+          {
+            name: 'Wait for an event',
+            description: 'Pause execution and wait for an event matching rules before continuing.',
+          },
+          {
+            name: 'Auto-retries',
+            description: 'Each step is automatically retried if it fails without re-running the entire workflow.'
+          }
         ]}
         docsHref="https://www.inngest.com/docs/functions/multi-step"
         codeHref="https://github.com/inngest/inngest-demo/blob/main/app/workflows/customer-onboarding/inngest.ts"
