@@ -12,8 +12,9 @@ export default function ScheduledFunctionsPage() {
         benefits={[
           {
             name: 'Auto-retries',
-            description: 'If a report fails to generate (e.g. because of a network error), Inngest will automatically retry the request for you.'
-          }
+            description:
+              'If a report fails to generate (e.g. because of a network error), Inngest will automatically retry the request for you.',
+          },
         ]}
         docsHref="https://www.inngest.com/docs/guides/scheduled-functions"
         codeHref="https://github.com/inngest/inngest-demo/blob/main/app/scheduled-functions/monthly-report/inngest.ts"

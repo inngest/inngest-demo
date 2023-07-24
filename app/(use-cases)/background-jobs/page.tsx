@@ -12,12 +12,14 @@ export default async function BackgroundJobsPage() {
         benefits={[
           {
             name: 'Auto-retries',
-            description: 'No need to worry about timeouts or rate limits when saving the contacts. Inngest will automatically retry failed requests for you.'
+            description:
+              'No need to worry about timeouts or rate limits when saving the contacts. Inngest will automatically retry failed requests for you.',
           },
           {
             name: 'No queues or workers required',
-            description: 'Serverless background jobs mean you don’t need to set up queues or long-running workers.'
-          }
+            description:
+              'Serverless background jobs mean you don’t need to set up queues or long-running workers.',
+          },
         ]}
         docsHref="https://www.inngest.com/docs/guides/background-jobs"
         codeHref="https://github.com/inngest/inngest-demo/blob/main/app/background-jobs/csv-file-import/inngest.ts"

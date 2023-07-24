@@ -24,8 +24,9 @@ export default function WorkflowsPage() {
           },
           {
             name: 'Auto-retries',
-            description: 'Each step is automatically retried if it fails without re-running the entire workflow.'
-          }
+            description:
+              'Each step is automatically retried if it fails without re-running the entire workflow.',
+          },
         ]}
         docsHref="https://www.inngest.com/docs/functions/multi-step"
         codeHref="https://github.com/inngest/inngest-demo/blob/main/app/workflows/customer-onboarding/inngest.ts"

@@ -9,15 +9,27 @@ export default function IllustrationDemoSwitcher({
   illustration: React.ReactNode;
   code: React.ReactNode;
 }) {
+  const tabClasses =
+    'bg-white bg-opacity-0 ui-not-selected:hover:bg-opacity-10 ui-selected:bg-opacity-[0.15] pointer-events-auto flex rounded-md px-3 py-2 text-xs font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50';
+
   return (
     <Tab.Group
       as="aside"
-      className="lg:col-span-3 h-96 [contain:size] relative min-h-full flex flex-col gap-6 rounded-lg p-6 border border-dashed border-zinc-800 bg-[#050911]"
+      className="lg:col-span-3 h-96 [contain:size] relative min-h-full flex flex-col gap-6 rounded-lg border border-dashed border-zinc-800 bg-[#050911]"
     >
-      <Tab.List className="flex gap-4">
-        <Tab>Illustration</Tab>
-        <Tab>Code</Tab>
-      </Tab.List>
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-10 m-[2px] md:left-auto">
+        <Tab.List className="flex items-stretch justify-end rounded-t-[10px] px-3 py-1 md:m-1 md:rounded-lg space-x-1">
+          <Tab className={tabClasses}>Illustration</Tab>
+          <Tab className={tabClasses}>Code</Tab>
+          <div className="my-2 w-[2px] grow-0 bg-white bg-opacity-10" />
+          <button className="bg-white bg-opacity-0 hover:bg-opacity-10 pointer-events-auto relative rounded-md px-4 py-2 text-xs font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50">
+            <span>Copy</span>
+            <span className="opacity-0 absolute inset-0 flex items-center justify-center">
+              Copied!
+            </span>
+          </button>
+        </Tab.List>
+      </div>
       <Tab.Panels className="flex-1 overflow-auto">
         <Tab.Panel>{illustration}</Tab.Panel>
         <Tab.Panel>{code}</Tab.Panel>
