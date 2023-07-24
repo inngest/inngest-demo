@@ -17,7 +17,7 @@ export default function ScheduledFunctionsPage() {
           },
         ]}
         docsHref="https://www.inngest.com/docs/guides/scheduled-functions"
-        codeHref="https://github.com/inngest/inngest-demo/blob/main/app/scheduled-functions/monthly-report/inngest.ts"
+        githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/scheduled-functions/monthly-report/inngest.ts"
         illustration={<Illustration />}
         codeFilePath={path.join(
           process.cwd(),

@@ -29,7 +29,7 @@ export default function WorkflowsPage() {
           },
         ]}
         docsHref="https://www.inngest.com/docs/functions/multi-step"
-        codeHref="https://github.com/inngest/inngest-demo/blob/main/app/workflows/customer-onboarding/inngest.ts"
+        githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/workflows/customer-onboarding/inngest.ts"
         illustration={<Illustration />}
         codeFilePath={path.join(
           process.cwd(),

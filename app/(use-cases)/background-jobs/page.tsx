@@ -22,7 +22,7 @@ export default async function BackgroundJobsPage() {
           },
         ]}
         docsHref="https://www.inngest.com/docs/guides/background-jobs"
-        codeHref="https://github.com/inngest/inngest-demo/blob/main/app/background-jobs/csv-file-import/inngest.ts"
+        githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/background-jobs/csv-file-import/inngest.ts"
         illustration={<Illustration />}
         codeFilePath={path.join(
           process.cwd(),

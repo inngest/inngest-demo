@@ -10,7 +10,7 @@ type UseCaseExampleProps = {
     description: string;
   }[];
   docsHref: string;
-  codeHref: string;
+  githubHref: string;
   illustration: React.ReactNode;
   codeFilePath: string;
 };
@@ -20,7 +20,7 @@ export default function Example({
   description,
   benefits,
   docsHref,
-  codeHref,
+  githubHref,
   illustration,
   codeFilePath,
 }: UseCaseExampleProps) {
@@ -62,11 +62,11 @@ export default function Example({
             </svg>
           </a>
           <a
-            href={codeHref}
+            href={githubHref}
             target="_blank"
             className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
           >
-            Source Code
+            GitHub
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
