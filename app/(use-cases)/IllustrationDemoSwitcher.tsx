@@ -30,7 +30,7 @@ export default function IllustrationDemoSwitcher({
           </button>
         </Tab.List>
       </div>
-      <Tab.Panels className="flex-1 overflow-auto">
+      <Tab.Panels className="flex-1 overflow-auto px-1 py-4">
         <Tab.Panel>{illustration}</Tab.Panel>
         <Tab.Panel>{code}</Tab.Panel>
       </Tab.Panels>
