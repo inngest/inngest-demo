@@ -28,6 +28,11 @@ export default async function BackgroundJobsPage() {
           process.cwd(),
           'app/(use-cases)/background-jobs/csv-file-import/inngest.ts',
         )}
+        action={async () => {
+          "use server";
+
+          await fetch('/background-jobs/csv-file-import', { method: 'PUT' });
+        }}
       />
     </CategoryLayout>
   );

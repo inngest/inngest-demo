@@ -1,6 +1,7 @@
 import CategoryLayout from '@/app/(use-cases)/CategoryLayout';
 import Example from '@/app/(use-cases)/Example';
 import Illustration from '@/app/(use-cases)/workflows/customer-onboarding/Illustration';
+import inngest from '@/app/api/inngest/client';
 import path from 'node:path';
 
 export default function WorkflowsPage() {
@@ -35,6 +36,21 @@ export default function WorkflowsPage() {
           process.cwd(),
           'app/(use-cases)/workflows/customer-onboarding/inngest.ts',
         )}
+        action={async () => {
+          "use server";
+          // Artificial delay to simulate a network request
+          await new Promise((r) => setTimeout(r, 1_000));
+
+          await inngest.send({
+            name: 'app/user.signed.up',
+            data: {
+              userId: '123',
+              firstName: 'John',
+              lastName: 'Doe',
+              email: 'doej@example.com',
+            },
+          });
+        }}
       />
     </CategoryLayout>
   );

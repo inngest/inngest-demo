@@ -2,7 +2,7 @@
 
 import { Tab } from '@headlessui/react';
 
-export default function IllustrationDemoSwitcher({
+export default function Demo({
   illustration,
   code,
 }: {
@@ -15,7 +15,7 @@ export default function IllustrationDemoSwitcher({
   return (
     <Tab.Group
       as="aside"
-      className="lg:col-span-3 h-96 [contain:size] relative min-h-full flex flex-col gap-6 rounded-lg border border-dashed border-zinc-800 bg-[#050911]"
+      className="lg:col-span-3 relative overflow-auto flex-1 rounded-lg border border-dashed border-zinc-800 bg-[#050911]"
     >
       <div className="pointer-events-none absolute inset-x-0 top-0 z-10 m-[2px] md:left-auto">
         <Tab.List className="flex items-stretch justify-end rounded-t-[10px] px-3 py-1 md:m-1 md:rounded-lg space-x-1">
@@ -23,7 +23,7 @@ export default function IllustrationDemoSwitcher({
           <Tab className={tabClasses}>Code</Tab>
         </Tab.List>
       </div>
-      <Tab.Panels className="flex-1 overflow-auto px-1 py-4">
+      <Tab.Panels className="h-full px-1 py-4">
         <Tab.Panel>{illustration}</Tab.Panel>
         <Tab.Panel>{code}</Tab.Panel>
       </Tab.Panels>

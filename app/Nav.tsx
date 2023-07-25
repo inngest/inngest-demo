@@ -59,9 +59,9 @@ export function Nav() {
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? (
-          <XIcon className="block w-6 text-gray-400" />
+          <XIcon className="block w-6 text-slate-400" />
         ) : (
-          <MenuIcon className="block w-6 text-gray-400" />
+          <MenuIcon className="block w-6 text-slate-400" />
         )}
       </button>
 
@@ -117,7 +117,7 @@ function NavItem({
       <Link
         onClick={close}
         href={`/${categorySlug}#${item.slug}`}
-        className="block rounded-md px-3 py-2 text-sm font-medium hover:text-gray-300 text-gray-400 hover:bg-gray-800"
+        className="block rounded-md px-3 py-2 text-sm font-medium hover:text-slate-200 text-slate-400 hover:bg-slate-800"
       >
         {item.name}
       </Link>

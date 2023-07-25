@@ -1,5 +1,6 @@
 import CategoryLayout from '@/app/(use-cases)/CategoryLayout';
 import Example from '@/app/(use-cases)/Example';
+import inngest from '@/app/api/inngest/client';
 import Illustration from './monthly-report/Illustration';
 import path from 'node:path';
 
@@ -23,6 +24,10 @@ export default function ScheduledFunctionsPage() {
           process.cwd(),
           'app/(use-cases)/scheduled-functions/monthly-report/inngest.ts',
         )}
+        action={async () => {
+          "use server";
+          // Do nothing
+        }}
       />
     </CategoryLayout>
   );
