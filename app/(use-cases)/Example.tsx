@@ -1,7 +1,6 @@
 import Button from '@/app/(use-cases)/Button';
 import Code from '@/app/(use-cases)/Code';
 import Demo from '@/app/(use-cases)/Demo';
-import inngest from '@/app/api/inngest/client';
 import { Suspense } from 'react';
 
 type UseCaseExampleProps = {
@@ -14,7 +13,6 @@ type UseCaseExampleProps = {
   docsHref: string;
   githubHref: string;
   illustration: React.ReactNode;
-  codeFilePath: string;
   action: () => Promise<void>;
 };
 
@@ -25,9 +23,12 @@ export default function Example({
   docsHref,
   githubHref,
   illustration,
-  codeFilePath,
   action,
 }: UseCaseExampleProps) {
+
+  const gitHubFileURL = new URL(githubHref);
+  gitHubFileURL.searchParams.set("raw", "true");
+
   return (
     <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-5">
       <div className="gap-4 lg:col-span-2 flex flex-col justify-between">
@@ -57,7 +58,7 @@ export default function Example({
           illustration={illustration}
           code={
             <Suspense fallback={<p>Loading code...</p>}>
-              <Code filePath={codeFilePath} />
+              <Code fileURL={gitHubFileURL} />
             </Suspense>
           }
         />

@@ -2,7 +2,6 @@ import CategoryLayout from '@/app/(use-cases)/CategoryLayout';
 import Example from '@/app/(use-cases)/Example';
 import Illustration from '@/app/(use-cases)/workflows/customer-onboarding/Illustration';
 import inngest from '@/app/api/inngest/client';
-import path from 'node:path';
 
 export default function WorkflowsPage() {
   return (
@@ -32,10 +31,6 @@ export default function WorkflowsPage() {
         docsHref="https://www.inngest.com/docs/functions/multi-step"
         githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/workflows/customer-onboarding/inngest.ts"
         illustration={<Illustration />}
-        codeFilePath={path.join(
-          process.cwd(),
-          'app/(use-cases)/workflows/customer-onboarding/inngest.ts',
-        )}
         action={async () => {
           "use server";
           // Artificial delay to simulate a network request

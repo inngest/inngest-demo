@@ -1,7 +1,6 @@
 import Illustration from '@/app/(use-cases)/background-jobs/csv-file-import/Illustration';
 import CategoryLayout from '@/app/(use-cases)/CategoryLayout';
 import Example from '@/app/(use-cases)/Example';
-import path from 'path';
 
 export default async function BackgroundJobsPage() {
   return (
@@ -24,10 +23,6 @@ export default async function BackgroundJobsPage() {
         docsHref="https://www.inngest.com/docs/guides/background-jobs"
         githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/background-jobs/csv-file-import/inngest.ts"
         illustration={<Illustration />}
-        codeFilePath={path.join(
-          process.cwd(),
-          'app/(use-cases)/background-jobs/csv-file-import/inngest.ts',
-        )}
         action={async () => {
           "use server";
 
