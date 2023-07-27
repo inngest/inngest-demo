@@ -17,7 +17,7 @@ export default function Home() {
           <UseCaseCategoryCard
             key={category.name}
             name={category.name}
-            description={category.description}
+            description={category.summary}
             illustration={category.illustration}
             slug={category.slug}
           />
