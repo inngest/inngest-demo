@@ -32,7 +32,7 @@ export default function WorkflowsPage() {
         githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/workflows/customer-onboarding/inngest.ts"
         illustration={<Illustration />}
         action={async () => {
-          "use server";
+          'use server';
           // Artificial delay to simulate a network request
           await new Promise((r) => setTimeout(r, 1_000));
 

@@ -19,7 +19,7 @@ export default function ScheduledFunctionsPage() {
         githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/scheduled-functions/monthly-report/inngest.ts"
         illustration={<Illustration />}
         action={async () => {
-          "use server";
+          'use server';
           // Do nothing
         }}
       />

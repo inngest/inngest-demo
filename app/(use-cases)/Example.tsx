@@ -25,9 +25,8 @@ export default function Example({
   illustration,
   action,
 }: UseCaseExampleProps) {
-
   const gitHubFileURL = new URL(githubHref);
-  gitHubFileURL.searchParams.set("raw", "true");
+  gitHubFileURL.searchParams.set('raw', 'true');
 
   return (
     <div className="grid grid-cols-1 gap-x-16 gap-y-10 lg:grid-cols-5">

@@ -1,8 +1,16 @@
-"use client"
+'use client';
 
 import { useState } from 'react';
 
-export default function Button({ href, action, children }: { href?: string; action?: () => Promise<void>; children: React.ReactNode }) {
+export default function Button({
+  href,
+  action,
+  children,
+}: {
+  href?: string;
+  action?: () => Promise<void>;
+  children: React.ReactNode;
+}) {
   const [isLoading, setIsLoading] = useState(false);
 
   async function onClick() {
@@ -53,8 +61,7 @@ export default function Button({ href, action, children }: { href?: string; acti
           fill="currentColor"
           className="w-3 h-3"
         >
-          <path
-            d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z"/>
+          <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
         </svg>
         {children}
       </button>

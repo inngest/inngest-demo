@@ -1,6 +1,7 @@
 import Illustration from '@/app/(use-cases)/background-jobs/csv-file-import/Illustration';
 import CategoryLayout from '@/app/(use-cases)/CategoryLayout';
 import Example from '@/app/(use-cases)/Example';
+import inngest from '@/app/api/inngest/client';
 
 export default async function BackgroundJobsPage() {
   return (
@@ -24,9 +25,27 @@ export default async function BackgroundJobsPage() {
         githubHref="https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/background-jobs/csv-file-import/inngest.ts"
         illustration={<Illustration />}
         action={async () => {
-          "use server";
+          'use server';
 
-          await fetch('/background-jobs/csv-file-import', { method: 'PUT' });
+          async function fakeUpload() {
+            // Simulate upload time
+            await new Promise((r) => setTimeout(r, 2_000));
+
+            return {
+              url: '/public/500-contacts.csv',
+              uploadedAt: new Date(),
+              contentType: 'text/csv',
+            };
+          }
+
+          const { url } = await fakeUpload();
+
+          await inngest.send({
+            name: 'app/csv.file.uploaded',
+            data: {
+              url,
+            },
+          });
         }}
       />
     </CategoryLayout>
