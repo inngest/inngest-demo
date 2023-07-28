@@ -78,7 +78,7 @@ export function Nav() {
             return (
               <li key={category.name} className="space-y-2">
                 <span
-                  className={`px-3 text-xs font-semibold uppercase tracking-wider 
+                  className={`px-2 text-xs font-semibold uppercase tracking-wider 
                   ${isActive ? 'text-white' : 'text-gray-400/80'}`}
                 >
                   {category.name}
@@ -117,7 +117,7 @@ function NavItem({
       <Link
         onClick={close}
         href={`/${categorySlug}#${item.slug}`}
-        className="block rounded-md px-3 py-2 text-sm font-medium hover:text-slate-200 text-slate-400 hover:bg-slate-800"
+        className="block rounded-md p-2 text-sm font-medium hover:text-slate-200 text-slate-400 hover:bg-slate-800"
       >
         {item.name}
       </Link>
