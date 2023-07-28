@@ -40,7 +40,7 @@ export default function Example({
               {benefits.map((benefit) => (
                 <div key={benefit.name} className="relative pl-9">
                   <CheckCircle className="w-5 h-5 text-indigo-500 absolute left-1 top-0.5" />
-                  <dt className="inline font-medium text-indigo-500">{benefit.name}:</dt>{' '}
+                  <dt className="inline font-medium text-indigo-400">{benefit.name}:</dt>{' '}
                   <dd className="inline">{benefit.description}</dd>
                 </div>
               ))}
