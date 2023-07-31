@@ -41,18 +41,17 @@ function UseCaseCategoryCard({
   illustration: React.ReactNode;
   index: number;
 }) {
-  const gradientColorSets = [
-    ['#7AE4B2', '#5BACC6', '#5C77BC'],
-    ['#609DF9', '#5B72C6', '#8C5CBC'],
-    ['#795FE1', '#A359BD', '#A64F73'],
+
+  const gradientClasses = [
+    'from-[#7AE4B2] via-[#5BACC6] to-[#5C77BC]',
+    'from-[#609DF9] via-[#5B72C6] to-[#8C5CBC]',
+    'from-[#795FE1] via-[#A359BD] to-[#A64F73]',
   ];
-  const gradientColorSet = gradientColorSets[index % gradientColorSets.length];
-  const gradientClasses = `from-[${gradientColorSet[0]}] via-[${gradientColorSet[1]}] to-[${gradientColorSet[2]}]`;
 
   return (
     <Link
       href={`/${slug}`}
-      className={`relative flex flex-col w-full h-[380px] p-11 overflow-hidden bg-gradient-to-br ${gradientClasses} rounded-xl transition-transform hover:scale-[1.02]`}
+      className={`relative flex flex-col w-full h-[380px] p-11 overflow-hidden bg-gradient-to-br ${gradientClasses[index % gradientClasses.length]} rounded-xl transition-transform hover:scale-[1.02]`}
     >
       <div className="flex-1 flex items-center justify-center">{illustration}</div>
       <div className="space-y-2.5">
