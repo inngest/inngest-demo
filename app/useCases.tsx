@@ -4,7 +4,6 @@ import csvFileImportAction from '@/app/[categorySlug]/background-jobs/csv-file-i
 import CustomerOnboardingIllustration from '@/app/[categorySlug]/workflows/customer-onboarding/Illustration';
 import customerOnboardingAction from '@/app/[categorySlug]/workflows/customer-onboarding/action';
 import MonthlyReportIllustration from '@/app/[categorySlug]/scheduled-functions/monthly-report/Illustration';
-import monthlyReportAction from '@/app/[categorySlug]/scheduled-functions/monthly-report/action';
 
 export type Category = {
   name: string;
@@ -25,7 +24,7 @@ export type Example = {
   docsHref: string;
   githubHref: string;
   illustration: React.ReactNode;
-  action: () => Promise<void>;
+  action?: () => Promise<void>;
 };
 
 const useCases: Category[] = [
@@ -188,7 +187,6 @@ const useCases: Category[] = [
         githubHref:
           'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/scheduled-functions/monthly-report/inngest.ts',
         illustration: <MonthlyReportIllustration />,
-        action: monthlyReportAction,
       },
     ],
   },

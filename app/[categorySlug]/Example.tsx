@@ -14,7 +14,7 @@ type ExampleProps = {
   docsHref: string;
   githubHref: string;
   illustration: React.ReactNode;
-  action: () => Promise<void>;
+  action?: () => Promise<void>;
 };
 
 export default function Example({
@@ -63,7 +63,7 @@ export default function Example({
           }
         />
         <div className="flex justify-between gap-2">
-          <TriggerButton action={action} />
+          {action ? <TriggerButton action={action} /> : <div />}
           <Button href="http://localhost:8288/">Open Result</Button>
         </div>
       </div>
