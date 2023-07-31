@@ -1,9 +1,9 @@
-import Button from '@/app/(use-cases)/Button';
-import Code from '@/app/(use-cases)/Code';
-import Demo from '@/app/(use-cases)/Demo';
+import Button from '@/app/[categorySlug]/Button';
+import Code from '@/app/[categorySlug]/Code';
+import Demo from '@/app/[categorySlug]/Demo';
 import { Suspense } from 'react';
 
-type UseCaseExampleProps = {
+type ExampleProps = {
   name: string;
   description: string;
   benefits: {
@@ -24,7 +24,7 @@ export default function Example({
   githubHref,
   illustration,
   action,
-}: UseCaseExampleProps) {
+}: ExampleProps) {
   const gitHubFileURL = new URL(githubHref);
   gitHubFileURL.searchParams.set('raw', 'true');
 

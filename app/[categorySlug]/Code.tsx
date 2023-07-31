@@ -1,5 +1,5 @@
 import { Code as SyntaxHighlighter } from 'bright';
-import theme from '@/app/(use-cases)/theme.json';
+import theme from '@/app/[categorySlug]/theme.json';
 
 export default async function Code({ fileURL }: { fileURL: URL }) {
   const fileContent = await fetch(fileURL).then((res) => res.text());

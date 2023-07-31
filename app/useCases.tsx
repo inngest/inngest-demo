@@ -1,10 +1,10 @@
 import React from 'react';
-import CSVFileImportIllustration from '@/app/(use-cases)/background-jobs/csv-file-import/Illustration';
-import csvFileImportAction from '@/app/(use-cases)/background-jobs/csv-file-import/action';
-import CustomerOnboardingIllustration from '@/app/(use-cases)/workflows/customer-onboarding/Illustration';
-import customerOnboardingAction from '@/app/(use-cases)/workflows/customer-onboarding/action';
-import MonthlyReportIllustration from '@/app/(use-cases)/scheduled-functions/monthly-report/Illustration';
-import monthlyReportAction from '@/app/(use-cases)/scheduled-functions/monthly-report/action';
+import CSVFileImportIllustration from '@/app/[categorySlug]/background-jobs/csv-file-import/Illustration';
+import csvFileImportAction from '@/app/[categorySlug]/background-jobs/csv-file-import/action';
+import CustomerOnboardingIllustration from '@/app/[categorySlug]/workflows/customer-onboarding/Illustration';
+import customerOnboardingAction from '@/app/[categorySlug]/workflows/customer-onboarding/action';
+import MonthlyReportIllustration from '@/app/[categorySlug]/scheduled-functions/monthly-report/Illustration';
+import monthlyReportAction from '@/app/[categorySlug]/scheduled-functions/monthly-report/action';
 
 export type Category = {
   name: string;
@@ -76,7 +76,7 @@ const useCases: Category[] = [
         ],
         docsHref: 'https://www.inngest.com/docs/guides/background-jobs',
         githubHref:
-          'https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/background-jobs/csv-file-import/inngest.ts',
+          'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/background-jobs/csv-file-import/inngest.ts',
         illustration: <CSVFileImportIllustration />,
         action: csvFileImportAction,
       },
@@ -132,7 +132,7 @@ const useCases: Category[] = [
         ],
         docsHref: 'https://www.inngest.com/docs/functions/multi-step',
         githubHref:
-          'https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/workflows/customer-onboarding/inngest.ts',
+          'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/workflows/customer-onboarding/inngest.ts',
         illustration: <CustomerOnboardingIllustration />,
         action: customerOnboardingAction,
       },
@@ -186,7 +186,7 @@ const useCases: Category[] = [
         ],
         docsHref: 'https://www.inngest.com/docs/guides/scheduled-functions',
         githubHref:
-          'https://github.com/inngest/inngest-demo/blob/main/app/(use-cases)/scheduled-functions/monthly-report/inngest.ts',
+          'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/scheduled-functions/monthly-report/inngest.ts',
         illustration: <MonthlyReportIllustration />,
         action: monthlyReportAction,
       },
