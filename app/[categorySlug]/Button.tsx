@@ -1,26 +1,4 @@
-'use client';
-
-import { useState } from 'react';
-
-export default function Button({
-  href,
-  action,
-  children,
-}: {
-  href?: string;
-  action?: () => Promise<void>;
-  children: React.ReactNode;
-}) {
-  const [isLoading, setIsLoading] = useState(false);
-
-  async function onClick() {
-    if (!action) return;
-
-    setIsLoading(true);
-    await action();
-    setIsLoading(false);
-  }
-
+export default function Button({ href, children }: { href?: string; children: React.ReactNode }) {
   if (href && href.startsWith('http')) {
     return (
       <a
@@ -42,29 +20,6 @@ export default function Button({
           />
         </svg>
       </a>
-    );
-  }
-
-  if (action && !href) {
-    return (
-      <button
-        type="button"
-        className={`bg-slate-800 inline-flex items-center text-sm gap-x-1.5 font-medium text-slate-200 hover:bg-slate-700 transition-colors rounded py-2 pr-4 pl-3.5 ${
-          isLoading ? 'cursor-wait' : ''
-        }`}
-        onClick={onClick}
-        disabled={isLoading}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="w-3 h-3"
-        >
-          <path d="M11.983 1.907a.75.75 0 00-1.292-.657l-8.5 9.5A.75.75 0 002.75 12h6.572l-1.305 6.093a.75.75 0 001.292.657l8.5-9.5A.75.75 0 0017.25 8h-6.572l1.305-6.093z" />
-        </svg>
-        {children}
-      </button>
     );
   }
 

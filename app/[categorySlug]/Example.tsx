@@ -1,6 +1,7 @@
 import Button from '@/app/[categorySlug]/Button';
 import Code from '@/app/[categorySlug]/Code';
 import Demo from '@/app/[categorySlug]/Demo';
+import TriggerButton from '@/app/[categorySlug]/TriggerButton';
 import { Suspense } from 'react';
 
 type ExampleProps = {
@@ -62,7 +63,7 @@ export default function Example({
           }
         />
         <div className="flex justify-between gap-2">
-          <Button action={action}>Trigger</Button>
+          <TriggerButton action={action} />
           <Button href="http://localhost:8288/">Open Result</Button>
         </div>
       </div>
