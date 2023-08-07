@@ -1,4 +1,4 @@
-import inngest from '@/app/api/inngest/client';
+import { inngest } from '@/inngest';
 
 export const generateMonthlyReport = inngest.createFunction(
   { name: 'Generate monthly report' },

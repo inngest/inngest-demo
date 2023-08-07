@@ -1,5 +1,5 @@
 import type { EventPayload } from 'inngest';
-import inngest from '@/app/api/inngest/client';
+import { inngest } from '@/inngest';
 
 export interface AppUserSignedUp extends EventPayload {
   name: 'app/user.signed.up';

@@ -1,8 +1,8 @@
-import { AppCSVFileUploaded } from '@/app/[categorySlug]/background-jobs/csv-file-import/inngest';
-import {
+import type { AppCSVFileUploaded } from '@/inngest/importContactsFromCSVFile';
+import type {
   AppEmailOpened,
   AppUserSignedUp,
-} from '@/app/[categorySlug]/workflows/customer-onboarding/inngest';
+} from '@/inngest/customerOnboarding';
 import { EventSchemas, Inngest } from 'inngest';
 
 const inngest = new Inngest({

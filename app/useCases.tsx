@@ -75,7 +75,7 @@ const useCases: Category[] = [
         ],
         docsHref: 'https://www.inngest.com/docs/guides/background-jobs',
         githubHref:
-          'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/background-jobs/csv-file-import/inngest.ts',
+          'https://github.com/inngest/inngest-demo/blob/main/inngest/importContactsFromCSVFile.ts',
         illustration: <CSVFileImportIllustration />,
         action: csvFileImportAction,
       },
@@ -130,8 +130,7 @@ const useCases: Category[] = [
           },
         ],
         docsHref: 'https://www.inngest.com/docs/functions/multi-step',
-        githubHref:
-          'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/workflows/customer-onboarding/inngest.ts',
+        githubHref: 'https://github.com/inngest/inngest-demo/blob/main/inngest/customerOnboarding.ts',
         illustration: <CustomerOnboardingIllustration />,
         action: customerOnboardingAction,
       },
@@ -185,7 +184,7 @@ const useCases: Category[] = [
         ],
         docsHref: 'https://www.inngest.com/docs/guides/scheduled-functions',
         githubHref:
-          'https://github.com/inngest/inngest-demo/blob/main/app/[categorySlug]/scheduled-functions/monthly-report/inngest.ts',
+          'https://github.com/inngest/inngest-demo/blob/main/inngest/generateMonthlyReport.ts',
         illustration: <MonthlyReportIllustration />,
       },
     ],

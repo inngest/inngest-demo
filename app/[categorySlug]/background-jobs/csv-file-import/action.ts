@@ -1,6 +1,6 @@
 'use server';
 
-import inngest from '@/app/api/inngest/client';
+import { inngest } from '@/inngest';
 
 export default async function action() {
   async function fakeUpload() {
