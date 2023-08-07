@@ -9,7 +9,7 @@ export default async function Code({ fileURL }: { fileURL: URL }) {
   const inngestFunctionCode = fileContent.substring(fileContent.indexOf(startString)).trimEnd();
 
   return (
-    <SyntaxHighlighter style={{ margin: 0 }} className="text-mono text-xs" theme={theme} lang="ts">
+    <SyntaxHighlighter style={{ margin: 0 }} className="text-mono text-xs leading-5" theme={theme} lang="ts">
       {inngestFunctionCode}
     </SyntaxHighlighter>
   );
