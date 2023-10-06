@@ -22,20 +22,21 @@ export interface AppEmailOpened extends EventPayload {
 }
 
 export const customerOnboarding = inngest.createFunction(
-  { name: 'Customer Onboarding' },
+  {id: 'customer-onboarding', name: 'Customer Onboarding' },
   { event: 'app/user.signed.up' },
   async ({ event, step }) => {
     await step.run('Send welcome email', async () => {
       // Send welcome email
     });
 
-    await step.sleep('2s'); // Replace with 2 days in production
+    await step.sleep('wait-after-first-email','2s'); // Replace with 2 days in production
 
     await step.run('Send “New in Stock” email', async () => {
       // Send “New in Stock” email
     });
 
-    const emailOpenedEvent = await step.waitForEvent('app/email.opened', {
+    const emailOpenedEvent = await step.waitForEvent('wait-for-email-opened', {
+      event: 'app/email.opened',
       timeout: '3s', // Replace with 3 days in production
       if:
         'event.data.userId == async.data.userId &&' +

@@ -21,7 +21,7 @@ type Contact = {
 };
 
 export const importContactsFromCSVFile = inngest.createFunction(
-  { name: 'Import contacts from CSV file' },
+  {id: 'import-contacts-from-csv-file', name: 'Import contacts from CSV file' },
   { event: 'app/csv.file.uploaded' },
   async ({ event, step }) => {
     const fileContent = await step.run('Read file content', async () => {
