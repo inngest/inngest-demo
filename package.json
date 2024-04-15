@@ -18,7 +18,7 @@
     "encoding": "0.1.13",
     "inngest": "latest",
     "inngest-cli": "latest",
-    "next": "13.4.8",
+    "next": "13.5.1",
     "postcss": "8.4.31",
     "react": "18.2.0",
     "react-dom": "18.2.0",
