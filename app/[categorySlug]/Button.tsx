@@ -4,7 +4,7 @@ export default function Button({ href, children }: { href?: string; children: Re
       <a
         href={href}
         target="_blank"
-        className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
+        className="text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded-sm text-sm pl-4 pr-1.5 py-2 inline-flex items-center"
       >
         {children}
         <svg
@@ -26,7 +26,7 @@ export default function Button({ href, children }: { href?: string; children: Re
   return (
     <button
       className={
-        'text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded text-sm pl-4 pr-1.5 py-2 inline-flex items-center'
+        'text-slate-200 font-medium bg-slate-800 hover:bg-slate-700 transition-colors rounded-sm text-sm pl-4 pr-1.5 py-2 inline-flex items-center'
       }
     >
       {children}

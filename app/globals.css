@@ -1,3 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin '@headlessui/tailwindcss';
+
+@theme {
+  --color-slate-950: #0c1323;
+  --color-slate-1000: #080d19;
+}
