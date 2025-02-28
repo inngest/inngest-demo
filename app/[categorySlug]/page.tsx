@@ -2,7 +2,8 @@ import Example from '@/app/[categorySlug]/Example';
 import useCases from '@/app/useCases';
 import { notFound } from 'next/navigation';
 
-export default async function CategoryPage({ params }: { params: { categorySlug: string } }) {
+export default async function CategoryPage(props: { params: Promise<{ categorySlug: string }> }) {
+  const params = await props.params;
   const category = useCases.find((category) => category.slug === params.categorySlug);
 
   if (!category) notFound();
