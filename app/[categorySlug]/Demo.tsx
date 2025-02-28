@@ -10,7 +10,7 @@ export default function Demo({
   code: React.ReactNode;
 }) {
   const tabClasses =
-    'bg-white bg-opacity-0 ui-not-selected:hover:bg-opacity-10 ui-selected:bg-opacity-[0.15] pointer-events-auto flex rounded-md px-3 py-2 text-xs font-medium text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50';
+    'bg-white bg-opacity-0 hover:ui-not-selected:bg-opacity-10 ui-selected:bg-opacity-[0.15] pointer-events-auto flex rounded-md px-3 py-2 text-xs font-medium text-white focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-50';
 
   return (
     <Tab.Group

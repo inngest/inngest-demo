@@ -51,7 +51,7 @@ function UseCaseCategoryCard({
   return (
     <Link
       href={`/${slug}`}
-      className={`relative flex flex-col w-full h-[380px] p-11 overflow-hidden bg-gradient-to-br ${gradientClasses[index % gradientClasses.length]} rounded-xl transition-transform hover:scale-[1.02]`}
+      className={`relative flex flex-col w-full h-[380px] p-11 overflow-hidden bg-linear-to-br ${gradientClasses[index % gradientClasses.length]} rounded-xl transition-transform hover:scale-[1.02]`}
     >
       <div className="flex-1 flex items-center justify-center">{illustration}</div>
       <div className="space-y-2.5">
