@@ -25,11 +25,5 @@
     "react-dom": "19.0.0",
     "tailwindcss": "4.0.9",
     "typescript": "5.1.6"
-  },
-  "pnpm": {
-    "overrides": {
-      "@types/react": "19.0.10",
-      "@types/react-dom": "19.0.4"
-    }
   }
 }
