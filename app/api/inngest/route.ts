@@ -1,9 +1,4 @@
-// app/api/inngest/route.ts
-import { serve } from "inngest/next";
-import { inngest } from "../../../inngest/client";   // your client
-import * as fns from "../../../inngest/functions";   // your functions
+import { inngest, functions } from '@/inngest';
+import { serve } from 'inngest/next';
 
-export const { GET, POST, PUT } = serve({
-  client: inngest,
-  functions: Object.values(fns),
-});
+export const { GET, POST, PUT } = serve({ client: inngest, functions});
