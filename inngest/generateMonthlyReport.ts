@@ -1,15 +1,15 @@
 import { inngest } from '@/inngest';
 
 export const generateMonthlyReport = inngest.createFunction(
-  {id: 'generate-monthly-report', name: 'Generate monthly report' },
+  { id: 'generate-monthly-report', name: 'Generate monthly report' },
   { cron: '0 0 1 * *' }, // Every 1st day of the month at midnight
   async ({ event, step }) => {
-    step.run('Generate report', () => {
+    step.run('generate-report', () => {
       // Query database and generate report
     });
 
-    step.run('Send report', () => {
+    step.run('send-report', () => {
       // Send report to employees
     });
-  },
+  }
 );

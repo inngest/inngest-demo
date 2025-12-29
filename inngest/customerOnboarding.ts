@@ -22,16 +22,16 @@ export interface AppEmailOpened extends EventPayload {
 }
 
 export const customerOnboarding = inngest.createFunction(
-  {id: 'customer-onboarding', name: 'Customer Onboarding' },
+  { id: 'customer-onboarding', name: 'Customer Onboarding' },
   { event: 'app/user.signed.up' },
   async ({ event, step }) => {
-    await step.run('Send welcome email', async () => {
+    await step.run('send-welcome-email', async () => {
       // Send welcome email
     });
 
-    await step.sleep('wait-after-first-email','2s'); // Replace with 2 days in production
+    await step.sleep('wait-after-first-email', '2s'); // Replace with 2 days in production
 
-    await step.run('Send “New in Stock” email', async () => {
+    await step.run('send-new-in-stock-email', async () => {
       // Send “New in Stock” email
     });
 
@@ -44,9 +44,9 @@ export const customerOnboarding = inngest.createFunction(
     });
 
     if (!emailOpenedEvent) {
-      await step.run('Send “10% Discount” email', async () => {
+      await step.run('send-10-percent-discount-email', async () => {
         // Send “10% Discount” email
       });
     }
-  },
+  }
 );
