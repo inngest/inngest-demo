@@ -1,15 +1,7 @@
-import type { EventPayload } from 'inngest';
 import { parse } from 'csv-parse/sync';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { inngest } from '@/inngest';
-
-export interface AppCSVFileUploaded extends EventPayload {
-  name: 'app/csv.file.uploaded';
-  data: {
-    url: string;
-  };
-}
 
 type Contact = {
   firstName: string;
@@ -24,8 +16,8 @@ export const importContactsFromCSVFile = inngest.createFunction(
   {
     id: 'import-contacts-from-csv-file',
     name: 'Import contacts from CSV file',
+    triggers: [{ event: 'app/csv.file.uploaded' }],
   },
-  { event: 'app/csv.file.uploaded' },
   async ({ event, step }) => {
     const fileContent = await step.run('read-file-content', async () => {
       const fileURL = event.data.url;

@@ -1,29 +1,7 @@
-import type { EventPayload } from 'inngest';
 import { inngest } from '@/inngest';
 
-export interface AppUserSignedUp extends EventPayload {
-  name: 'app/user.signed.up';
-  data: {
-    userId: string;
-    firstName: string;
-    lastName: string;
-    email: string;
-  };
-}
-
-export interface AppEmailOpened extends EventPayload {
-  name: 'app/email.opened';
-  data: {
-    userId: string;
-    template: {
-      name: string;
-    };
-  };
-}
-
 export const customerOnboarding = inngest.createFunction(
-  { id: 'customer-onboarding', name: 'Customer Onboarding' },
-  { event: 'app/user.signed.up' },
+  { id: 'customer-onboarding', name: 'Customer Onboarding', triggers: [{ event: 'app/user.signed.up' }] },
   async ({ event, step }) => {
     await step.run('send-welcome-email', async () => {
       // Send welcome email
